@@ -10,5 +10,3 @@ def start_game():
 
     random.shuffle(deck)
 
-    p1 =
-    p2 =
