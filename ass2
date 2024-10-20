@@ -11,6 +11,6 @@ def start_game():
     p1_cards = deck[:26]
     p2_cards = deck[26:]
 
-def card_comparison():
+def card_comparison(p1_card, p2_card):
 
-    
+        
