@@ -9,4 +9,6 @@ def start_game():
     print(deck)
 
     random.shuffle(deck)
-
+    
+    p1_hand = [:26]
+    p2_hand = [26:]
