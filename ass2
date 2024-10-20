@@ -10,5 +10,5 @@ def start_game():
 
     random.shuffle(deck)
     
-    p1_hand = [:26]
-    p2_hand = [26:]
+    p1_hand = deck[:26]
+    p2_hand = deck[26:]
