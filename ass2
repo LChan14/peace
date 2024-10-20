@@ -8,5 +8,9 @@ def start_game():
 
     random.shuffle(deck)
     
-    p1_hand = deck[:26]
-    p2_hand = deck[26:]
+    p1_cards = deck[:26]
+    p2_cards = deck[26:]
+
+def card_comparison():
+
+    
