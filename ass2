@@ -1,7 +1,7 @@
 import random
 def start_game():
 
-    ranks = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
+    ranks = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
     suits = ("Heart", "Spade", "Club", "Diamond")
 
     deck = [(ranks,suits) for rank in ranks for suit in suits]
@@ -11,6 +11,15 @@ def start_game():
     p1_cards = deck[:26]
     p2_cards = deck[26:]
 
-def card_comparison(p1_cards, p2_cards):
-
-        
+def card_comparison(p1_card, p2_card):
+    ranks = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
+    p1_rank = ranks.index(p1_card[0])
+    p2_rank = ranks.index(p2_card[0])
+    
+    if p1_card[0] > p2_card[0]:
+        return 1
+    if p2_card[0] > p1_card[0]:
+        return 2
+    else:
+        if p1_card[0] == p2_card[0]:
+            return 0
