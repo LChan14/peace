@@ -16,10 +16,10 @@ def card_comparison(p1_card, p2_card):
     p1_rank = ranks.index(p1_card[0])
     p2_rank = ranks.index(p2_card[0])
     
-    if p1_card[0] > p2_card[0]:
+    if p1_rank[0] > p2_rank[0]:
         return 1
-    if p2_card[0] > p1_card[0]:
+    if p2_rank[0] > p1_rank[0]:
         return 2
     else:
-        if p1_card[0] == p2_card[0]:
+        if p1_rank[0] == p2_rank[0]:
             return 0
