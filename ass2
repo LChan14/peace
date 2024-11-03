@@ -4,7 +4,7 @@ def start_game():
     ranks = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
     suits = ("Heart", "Spade", "Club", "Diamond")
 
-    deck = [(ranks,suits) for rank in ranks for suit in suits]
+    deck = [(rank,suit) for rank in ranks for suit in suits]
 
     random.shuffle(deck)
     
@@ -16,10 +16,13 @@ def card_comparison(p1_card, p2_card):
     p1_rank = ranks.index(p1_card[0])
     p2_rank = ranks.index(p2_card[0])
     
-    if p1_rank[0] > p2_rank[0]:
+    if p1_rank > p2_rank:
         return 1
-    if p2_rank[0] > p1_rank[0]:
+    if p2_rank > p1_rank:
         return 2
     else:
-        if p1_rank[0] == p2_rank[0]:
+        if p1_rank == p2_rank:
             return 0
+
+def play_round(player1_hand, player2_hand):
+    
