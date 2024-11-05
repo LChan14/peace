@@ -1,15 +1,18 @@
 import random
-def start_game():
 
+def start_game():
     ranks = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
     suits = ("Heart", "Spade", "Club", "Diamond")
 
-    deck = [(rank,suit) for rank in ranks for suit in suits]
-
+    # Create and shuffle the deck
+    deck = [(rank, suit) for rank in ranks for suit in suits]
     random.shuffle(deck)
     
+    # Split the deck into two hands
     p1_cards = deck[:26]
     p2_cards = deck[26:]
+    
+    return p1_cards, p2_cards
 
 def card_comparison(p1_card, p2_card):
     ranks = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
@@ -18,11 +21,46 @@ def card_comparison(p1_card, p2_card):
     
     if p1_rank > p2_rank:
         return 1
-    if p2_rank > p1_rank:
+    elif p2_rank > p1_rank:
         return 2
     else:
-        if p1_rank == p2_rank:
-            return 0
+        return 0
 
 def play_round(player1_hand, player2_hand):
+    if not player1_hand or not player2_hand:
+        print("Game Over!")
+        return None
+
+    p1_card = player1_hand.pop(0)
+    p2_card = player2_hand.pop(0)
     
+    result = card_comparison(p1_card, p2_card)
+    
+    if result == 1:
+        print(f"Player 1 wins the round with {p1_card} against {p2_card}")
+        player1_hand.extend([p1_card, p2_card])
+    elif result == 2:
+        print(f"Player 2 wins the round with {p2_card} against {p1_card}")
+        player2_hand.extend([p1_card, p2_card])
+    else:
+        print(f"Tie with {p1_card} and {p2_card}")
+
+    return player1_hand, player2_hand
+
+def play_game():
+    
+    player1_hand, player2_hand = start_game()
+    
+    round_number = 1
+    while player1_hand and player2_hand:
+        print(f"\n--- Round {round_number} ---")
+        play_round(player1_hand, player2_hand)
+        round_number += 1
+
+    if player1_hand:
+        print("Player 1 wins the game!")
+    else:
+        print("Player 2 wins the game!")
+
+# Call the main function to start the game
+play_game()
