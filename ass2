@@ -28,39 +28,35 @@ def card_comparison(p1_card, p2_card):
 
 def play_round(player1_hand, player2_hand):
     if not player1_hand or not player2_hand:
-        print("Game Over!")
-        return None
-
+        return "Game Over, no more cards"
+    
     p1_card = player1_hand.pop(0)
     p2_card = player2_hand.pop(0)
+    
+    print(f"Player 1's card: {p1_card[0]} of {p1_card[1]}")
+    print(f"Player 2's card: {p2_card[0]} of {p2_card[1]}")
     
     result = card_comparison(p1_card, p2_card)
     
     if result == 1:
-        print(f"Player 1 wins the round with {p1_card} against {p2_card}")
-        player1_hand.extend([p1_card, p2_card])
+        return "Player 1 wins this round"
     elif result == 2:
-        print(f"Player 2 wins the round with {p2_card} against {p1_card}")
-        player2_hand.extend([p1_card, p2_card])
+        return "Player 2 wins this round"
     else:
-        print(f"Tie with {p1_card} and {p2_card}")
+        return "It's a tie!"
 
-    return player1_hand, player2_hand
+player1_hand, player2_hand = start_game()
 
 def play_game():
     
     player1_hand, player2_hand = start_game()
     
-    round_number = 1
     while player1_hand and player2_hand:
-        print(f"\n--- Round {round_number} ---")
         play_round(player1_hand, player2_hand)
-        round_number += 1
 
     if player1_hand:
         print("Player 1 wins the game!")
     else:
         print("Player 2 wins the game!")
 
-# Call the main function to start the game
 play_game()
