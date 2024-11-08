@@ -39,24 +39,24 @@ def play_round(player1_hand, player2_hand):
     result = card_comparison(p1_card, p2_card)
     
     if result == 1:
-        return "Player 1 wins this round"
+        return "Player 1 wins"
     elif result == 2:
-        return "Player 2 wins this round"
+        return "Player 2 wins"
     else:
         return "It's a tie!"
 
 player1_hand, player2_hand = start_game()
 
 def play_game():
-    
     player1_hand, player2_hand = start_game()
     
     while player1_hand and player2_hand:
-        play_round(player1_hand, player2_hand)
+        print(play_round(player1_hand, player2_hand))
+    
+    winner = "Player 1" if player1_hand else "Player 2"
+    print(f"{winner} wins the game!")
 
-    if player1_hand:
-        print("Player 1 wins the game!")
-    else:
-        print("Player 2 wins the game!")
+play_game()
+
 
 play_game()
