@@ -27,8 +27,6 @@ def card_comparison(p1_card, p2_card):
         return 0
 
 def play_round(player1_hand, player2_hand):
-    if not player1_hand or not player2_hand:
-        return "Game Over, no more cards"
     
     p1_card = player1_hand.pop(0)
     p2_card = player2_hand.pop(0)
@@ -39,9 +37,9 @@ def play_round(player1_hand, player2_hand):
     result = card_comparison(p1_card, p2_card)
     
     if result == 1:
-        return "Player 1 wins"
+        return "Player 1 wins this round"
     elif result == 2:
-        return "Player 2 wins"
+        return "Player 2 wins this round"
     else:
         return "It's a tie!"
 
